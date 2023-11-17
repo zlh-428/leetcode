@@ -27,18 +27,21 @@ var preorderTraversal = function (root) {
  * @return {number[]}
  */
 var inorderTraversal = function(root) {
-    let res = []
-    const queue = [root]
+    const res = [];
+    const queue = [];
+    let cur = root;
 
-    while(queue.length) {
-        const cur = queue.shift()
-        if (cur) {
-            res.push(cur.val)
-            cur.left && queue.push(cur.left)
-            cur.right && queue.push(cur.right)
-        }
+    while (queue.length || cur) {
+      if (cur) {
+        queue.push(cur);
+        cur = cur.left;
+      } else {
+        cur = queue.pop();
+        res.push(cur.val);
+        cur = cur.right;
+      }
     }
-    return res
+    return res;
 }
 
 // 后序遍历
