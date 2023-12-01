@@ -14,6 +14,5 @@ function largestSumAfterKNegations(nums: number[], k: number): number {
         k--;
     }
 
-    // 使用箭头函数的隐式返回值时，需使用简写省略花括号，否则要在 a + b 前加上 return
     return nums.reduce((a, b) => a + b)
 };
